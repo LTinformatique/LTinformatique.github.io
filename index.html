@@ -35,6 +35,9 @@
             text-align: center;
         }
 
+  
+        
+        
         .dark-theme {
             background-color: #121212;
             color: #fff;
@@ -45,13 +48,7 @@
             color: #000;
         }
 
-        .english {
-            color: #00ff00;
-        }
 
-        .french {
-            color: #9400d3;
-        }
 
         .yellow {
             color: #ffff00;
@@ -119,23 +116,61 @@
                 elements[i].classList.toggle("hidden");
             }
         }
+
+        function typeEffect(element, speed) {
+            let text = element.innerHTML;
+            element.innerHTML = "";
+
+            let i = 0;
+            let timer = setInterval(function() {
+                if (i < text.length) {
+                    element.append(text.charAt(i));
+                    i++;
+                } else {
+                    clearInterval(timer);
+                }
+            }, speed);
+        }
+
+        function startTextAnimation() {
+            let elementsEnglish = document.querySelectorAll(".box .english .hidden");
+            elementsEnglish.forEach(function(element, index) {
+                setTimeout(function() {
+                    typeEffect(element, 50);
+                    element.classList.remove("hidden");
+                }, 2000 * index);
+            });
+
+            let elementsFrench = document.querySelectorAll(".box .french .hidden");
+            elementsFrench.forEach(function(element, index) {
+                setTimeout(function() {
+                    typeEffect(element, 50);
+                    element.classList.remove("hidden");
+                }, 2000 * index);
+            });
+        }
     </script>
 </head>
-<body class="dark-theme">
+<body class="dark-theme" onload="startTextAnimation()">
     <div class="navbar">
         <a href="#" class="button" onclick="toggleLanguage()">Francais/English</a>
         <a href="#" class="button" onclick="toggleTheme()">Dark/Light</a>
     </div>
     <div class="container">
-        <img src="IMG/IMG11.png" alt="Logo LTinformatique" class="logo">
+        
         <div class="box">
+            <img src="IMG/IMG11.png" alt="Logo LTinformatique" class="logo">
             <div class="english">
                 <h1>LTinformatique</h1>
-                <p>Eng</p>
+                <p class="hidden">A range of personalized services.</p>
+                <p class="hidden">The quaternary sector:</p>
+                <p class="hidden">Sector of activity that includes companies engaged in research, consulting, leasing, or concession of high value-added services involving intellectual expertise. Note(s): The quaternary sector, which was proposed in the 1970s, encompasses activities aimed at providing highly sophisticated services, including those in the fields of information technology and telecommunications. Economic activity is divided into three main generic sectors: the primary sector (resource exploitation: agriculture, natural resource wealth, fishing, etc.), the secondary sector (goods created by agriculture or industry: energy, agri-food, construction, public works, etc.), and the tertiary sector (service sector: commerce, administration, education, healthcare, etc.). A fourth sector, the quaternary sector, which encompasses activities related to information and communication (press, research and consulting activities, etc.), is sometimes added today.</p>
             </div>
             <div class="french hidden">
                 <h1>LTinformatique</h1>
-                <p>Français</p>
+                <p class="hidden">Un éventail de services personnalisés</p>
+                <p class="hidden">Secteur quaternaire:</p>
+                <p class="hidden">Secteur d'activité qui regroupe les entreprises exerçant des activités de recherche, de conseil, de louage ou de concession de services à forte valeur ajoutée de matière grise. Note(s) : Le secteur quaternaire, qui a été proposé dans les années 70, regroupe les activités qui visent à fournir des services très élaborés, dont ceux notamment de l'informatique et des télécommunications. On divise l'activité économique en trois grands secteurs génériques : le secteur primaire (exploitation des ressources : agriculture, richesse du sous-sol, pêche, etc.), le secteur secondaire (biens crées par l'agriculture ou l'industrie : énergie, agroalimentaire, bâtiment, travaux publics, etc.), le secteur tertiaire (secteur des services : commerce, administration, enseignement, santé, etc.). On ajoute parfois aujourd'hui un quatrième secteur, le secteur quaternaire, qui regroupe les activités liées à l'information et à la communication (presse, activités de recherche et de conseil, etc.).</p>
             </div>
         </div>
         <div class="carousel">
