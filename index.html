@@ -633,7 +633,6 @@
         }
 
         .scrolling-content {
-
             text-align: center;
             z-index: 1;
             position: relative;
@@ -734,6 +733,11 @@
 
         /* Media Query for MOBILE */
         @media screen and (max-width: 768px) {
+            .gallery02 {
+                /* Align center */
+                grid-template-columns: repeat(auto-fill, minmax(calc(50% - 20px), 1fr));
+            }
+            
             .gallery03 {
                 grid-template-columns: repeat(auto-fill, minmax(calc(50% - 20px), 1fr));
             }
