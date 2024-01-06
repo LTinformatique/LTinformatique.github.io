@@ -42,7 +42,7 @@
             const inputText = document.getElementById('input').value;
             const model = await loadModel();
             if (model) {
-                const input = tf.tensor([[inputText]]);
+                const input = tf.tensor([inputText]); // Removed the extra array brackets
                 try {
                     const output = model.predict(input);
                     const result = output.dataSync()[0];
