@@ -18,22 +18,42 @@
         <div id="output-box">
             <p id="result">Result: </p>
         </div>
+        <div id="console"></div> <!-- Console output div -->
     </div>
 
     <script>
         async function loadModel() {
-            // Load your TensorFlow.js model here
-            const model = await tf.loadLayersModel('model.json');
-            return model;
+            // Log messages to the console div
+            const consoleDiv = document.getElementById('console');
+            consoleDiv.innerHTML += 'Loading model...<br>';
+            
+            try {
+                // Load your TensorFlow.js model here
+                const model = await tf.loadLayersModel('model.json');
+                consoleDiv.innerHTML += 'Model loaded successfully.<br>';
+                return model;
+            } catch (error) {
+                consoleDiv.innerHTML += 'Error loading model: ' + error.message + '<br>';
+                return null;
+            }
         }
 
         async function predict() {
             const inputText = document.getElementById('input').value;
             const model = await loadModel();
-            const input = tf.tensor([[inputText]]);
-            const output = model.predict(input);
-            const result = output.dataSync()[0];
-            document.getElementById('result').textContent = `Result: ${result.toFixed(2)}`;
+            if (model) {
+                const input = tf.tensor([[inputText]]);
+                try {
+                    const output = model.predict(input);
+                    const result = output.dataSync()[0];
+                    document.getElementById('result').textContent = `Result: ${result.toFixed(2)}`;
+                    consoleDiv.innerHTML += 'Prediction successful.<br>';
+                } catch (error) {
+                    consoleDiv.innerHTML += 'Error during prediction: ' + error.message + '<br>';
+                }
+            } else {
+                consoleDiv.innerHTML += 'Prediction aborted due to model loading error.<br>';
+            }
         }
 
         document.getElementById('calculate-button').addEventListener('click', predict);
