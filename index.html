@@ -169,11 +169,12 @@ h2 {
     /* Add rounded corners */
 }
 
+/* Update for better mobile responsiveness */
 .map-heel {
     width: 100%;
-    /* Make sure the iframe fits inside the shoe shape */
-    height: 200px; /* Adjust the height as needed */
+    height: 300px; /* Adjust the height as needed for mobile */
 }
+
 
 .section-title-left .section-title,
 .section-title-right .section-title {
@@ -211,6 +212,15 @@ h2 {
     height: auto;
     margin-right: 5px;
 }
+/* Update for better mobile responsiveness */
+.section-center img {
+    max-width: 100%;
+    height: auto;
+}
+/* Add CSS to hide the modals initially */
+.modal {
+    display: none;
+}
 
         
     </style>
@@ -229,7 +239,7 @@ h2 {
 
     <!-- Example 1: Centered Section with Image -->
     <div class="section-center">
-        <img src="IMAGES/promo01.jpeg" alt="Example Image" class="responsive-img">
+        <img src="IMAGES/promo01.jpeg" alt="Example Image">
         <div class="section-text">
         </div>
     </div>
@@ -383,8 +393,8 @@ h2 {
 
     <script>
         function openModal(company) {
-            const modal = document.getElementById('modal');
-            modal.style.display = 'block';
+    const modal = document.getElementById('modal');
+    modal.style.display = 'block';
             const modalContent = document.getElementById('modal-content');
             modalContent.innerHTML = ''; // Clear existing content
 
