@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Website Title</title>
     <style>
-
+        
         body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -169,12 +169,11 @@ h2 {
     /* Add rounded corners */
 }
 
-/* Update for better mobile responsiveness */
 .map-heel {
     width: 100%;
-    height: 300px; /* Adjust the height as needed for mobile */
+    /* Make sure the iframe fits inside the shoe shape */
+    height: 200px; /* Adjust the height as needed */
 }
-
 
 .section-title-left .section-title,
 .section-title-right .section-title {
@@ -212,18 +211,9 @@ h2 {
     height: auto;
     margin-right: 5px;
 }
-/* Update for better mobile responsiveness */
-.section-center img {
-    max-width: 100%;
-    height: auto;
-}
-/* Add CSS to hide the modals initially */
-.modal {
-    display: none;
-}
 
-        
-    </style>
+
+        </style>
 </head>
 
 <body>
@@ -234,7 +224,6 @@ h2 {
     <div class="banner">
         <img src="IMAGES/banner01.gif" alt="Banner">
     </div>
-    
 
 
     <!-- Example 1: Centered Section with Image -->
@@ -260,10 +249,7 @@ h2 {
     </div>
 
 
-    <!-- Example 4: Section with Title Over Image (Left) -->
     <div class="section-title-left">
-
-
         <img src="IMAGES/banner03.gif" alt="Example Image">
 
         <div class="section-title">
@@ -393,8 +379,8 @@ h2 {
 
     <script>
         function openModal(company) {
-    const modal = document.getElementById('modal');
-    modal.style.display = 'block';
+            const modal = document.getElementById('modal');
+            modal.style.display = 'block';
             const modalContent = document.getElementById('modal-content');
             modalContent.innerHTML = ''; // Clear existing content
 
