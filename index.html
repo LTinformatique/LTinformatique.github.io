@@ -351,6 +351,42 @@
             margin: 0 auto;
             /* Center the container horizontally */
         }
+
+
+        @media screen and (max-width: 768px) {
+        .gallery-item {
+            flex: 0 0 calc(50% - 20px); /* 2 items per row */
+        }
+
+        /* Adjust the banner size for smaller screens */
+        .banner img {
+            height: auto;
+        }
+
+        /* Center the text in section-center for smaller screens */
+        .section-center {
+            text-align: center;
+        }
+
+        /* Make the map full width for smaller screens */
+        .section-heel {
+            position: relative;
+        }
+
+        /* Reduce padding and font size for contact links */
+        .contact-links .contact-link {
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        /* Reduce the font size for the section titles */
+        h2 {
+            font-size: 18px;
+            padding: 5px;
+        }
+    }
+
+        
     </style>
 </head>
 
